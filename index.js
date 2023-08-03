@@ -4,19 +4,20 @@ require("dotenv").config();
 const port = process.env.PORT || 3000;
 const host = process.env.HOST || localhost;
 const bodyParser = require("body-parser");
+const userRoutes = require("./routes/Api/user");
+
 
 const mongodbConnectToDatabase = require("./config/db");
 // initilized the middleware
 
 app.use(bodyParser.json());
 
-const userRoutes = require("./routes/Api/user");
 
 // initialized to connections to database
 mongodbConnectToDatabase();
 
 // initialized to route
-app.use("user", userRoutes);
+app.use("/v1", userRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");

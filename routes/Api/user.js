@@ -5,16 +5,16 @@ const router = express.Router();
 const userController = require("../../controllers/userController");
 
 // get the all books
-router.get("users", userController.getAllUsers);
+router.get("/user", userController.getAllUsers);
 
 // get the user by id
-router.get("users/:id", userController.getUserById);
+router.get("user/:id", userController.getUserById);
 
 // create the user
-router.post("users", userController.createUser);
+router.post("user/", userController.createUser);
 
 // update the user
-router.patch("users/:id", userController.updateUser);
+router.patch("user/:id", userController.updateUser);
 
 // delete the user
 
